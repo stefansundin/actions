@@ -1,0 +1,15 @@
+name: Test mingw-w64
+on: push
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@master
+    - uses: ./mingw-w64
+      with:
+        script: ./build.sh
+    - uses: actions/upload-artifact@master
+      with:
+        name: hello.exe
+        path: hello.exe
